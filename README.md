@@ -288,3 +288,91 @@ You will need to include the `EditProductScreen` in the `RestaurantsStack.js` as
 ```
 
 Remember that the backend does not expect to receive the restaurantId of the product, since you cannot change the product from one restaurant to another.
+
+✅ RF.01 – Visualizar pedidos por restaurante
+Ubicación del código:
+./DeliverUS-Frontend-Owner/src/screens/orders/OrdersScreen.js
+
+Tareas clave:
+
+Utilizar la función getRestaurantOrders(restaurantId) desde RestaurantEndpoints.js para obtener los pedidos del restaurante.
+
+Mostrar los pedidos en una lista, incluyendo:
+
+Fecha de creación
+
+Estado (con imagen vía getOrderImage(status))
+
+Dirección de entrega
+
+Precio
+
+Esta pantalla se accede desde el botón “Check orders” en RestaurantDetailScreen.jsFrontend-Model-A-English.
+
+✅ RF.02 – Editar dirección y precio del pedido
+Ubicación del código:
+./DeliverUS-Frontend-Owner/src/screens/orders/EditOrderScreen.js
+
+Tareas clave:
+
+Crear un botón en OrdersScreen.js que navegue a esta pantalla.
+
+Mostrar campos editables para:
+
+Dirección de entrega (requerido)
+
+Precio total (requerido y debe ser > 0)
+
+Validar entrada de datos. Mostrar mensajes de error si falta algún campo o el precio es ≤ 0.
+
+Al guardar, actualizar los datos y volver automáticamente a la lista de pedidos actualizadaFrontend-Model-A-English.
+
+✅ RF.03 – Ver analíticas de pedidos
+Ubicación del código:
+./DeliverUS-Frontend-Owner/src/screens/orders/OrdersScreen.js
+
+Tareas clave:
+
+Mostrar métricas como:
+
+Facturado hoy (invoicedToday)
+
+Pedidos pendientes (numPendingOrders)
+
+Pedidos entregados hoy (numDeliveredTodayOrders)
+
+Pedidos de ayer (numYesterdayOrders)
+
+Usar los estilos analyticsContainer, analyticsRow y analyticsCell ya definidos.
+
+Los datos provienen de una API que devuelve un objeto como:
+
+json
+Copiar
+Editar
+{
+  "restaurantId": 1,
+  "numYesterdayOrders": 2,
+  "numPendingOrders": 1,
+  "numDeliveredTodayOrders": 1,
+  "invoicedToday": 65.0
+}
+Frontend-Model-A-English
+
+✅ RF.04 – Cambiar estado del pedido
+Ubicación del código:
+./DeliverUS-Frontend-Owner/src/screens/orders/OrdersScreen.js
+
+Tareas clave:
+
+Mostrar botón con ícono skip-next para avanzar el estado.
+
+Usar la función nextStatus(order) de OrderEndpoints.js.
+
+Asegurarse de que:
+
+No se muestre el botón si el estado es delivered.
+
+Se actualicen tanto la lista como las métricas tras el cambio de estado.
+
+Se muestren mensajes de éxito o error según el resultado de la operaciónFrontend-Model-A-English.
